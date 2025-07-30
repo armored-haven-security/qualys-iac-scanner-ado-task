@@ -1,0 +1,95 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "8d8eebd8-2b94-4c97-85af-839254cc6da4",
+    "name": "qualys-iac-scan",
+    "friendlyName": "Qualys IaC Scanner",
+    "description": "Scan Infrastructure as Code templates for security vulnerabilities using Qualys CloudView",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "OCC CSO  ",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Qualys IaC Scan $(scanName)",
+    "inputs": [
+        {
+            "name": "qualysBaseUrl",
+            "type": "string",
+            "label": "Qualys Base URL",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The base URL for your Qualys API endpoint (e.g., https://qualysapi.qualys.com or https://qualysapi.qg2.apps.qualys.com)"
+        },
+        {
+            "name": "qualysUsername",
+            "type": "string",
+            "label": "Qualys Username",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Username for Qualys API authentication"
+        },
+        {
+            "name": "qualysPassword",
+            "type": "string",
+            "label": "Qualys Password",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Password for Qualys API authentication (use secret variable)"
+        },
+        {
+            "name": "iacTemplateDir",
+            "type": "filePath",
+            "label": "IaC Template Directory",
+            "defaultValue": "$(System.DefaultWorkingDirectory)",
+            "required": true,
+            "helpMarkDown": "Directory containing Infrastructure as Code templates to scan"
+        },
+        {
+            "name": "scanName",
+            "type": "string",
+            "label": "Scan Name",
+            "defaultValue": "ADO-IaC-Scan-$(Build.BuildNumber)",
+            "required": false,
+            "helpMarkDown": "Name for the scan (defaults to build-specific name)"
+        },
+        {
+            "name": "pollInterval",
+            "type": "int",
+            "label": "Poll Interval (seconds)",
+            "defaultValue": "30",
+            "required": false,
+            "helpMarkDown": "How often to check for scan completion (in seconds)"
+        },
+        {
+            "name": "pollTimeout",
+            "type": "int",
+            "label": "Poll Timeout (seconds)",
+            "defaultValue": "1800",
+            "required": false,
+            "helpMarkDown": "Maximum time to wait for scan completion (in seconds)"
+        },
+        {
+            "name": "customCaBundle",
+            "type": "filePath",
+            "label": "Custom CA Bundle Path",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "Path to custom CA bundle file for SSL verification (optional)"
+        },
+        {
+            "name": "failOnFindings",
+            "type": "boolean",
+            "label": "Fail Build on Security Findings",
+            "defaultValue": "true",
+            "required": false,
+            "helpMarkDown": "Whether to fail the build if security vulnerabilities are found"
+        }
+    ],
+    "execution": {
+        "Node20_1": {
+            "target": "index.js"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "qualys-iac-scanner",
+    "name": "Qualys IaC Scanner",
+    "version": "1.0.1",
+    "publisher": "OCC CSO",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Scan Infrastructure as Code templates for security vulnerabilities using Qualys CloudView",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "qualys-iac-scan"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "qualys-iac-scan-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "qualys-iac-scan"
+            }
+        }
+    ]
+}
