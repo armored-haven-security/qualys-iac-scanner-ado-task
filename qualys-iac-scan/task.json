@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-    "id": "8d8eebd8-2b94-4c97-85af-839254cc6da4",
+    "id": "e11f5ecd-abc4-4262-8d13-3c1fe3c66737",
     "name": "qualys-iac-scan",
     "friendlyName": "Qualys IaC Scanner",
     "description": "Scan Infrastructure as Code templates for security vulnerabilities using Qualys CloudView",
