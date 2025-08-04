@@ -3,7 +3,7 @@
     "id": "qualys-iac-scanner",
     "name": "Qualys IaC Scanner",
     "version": "1.0.1",
-    "publisher": "OCC CSO",
+    "publisher": "OCC-CSO",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"

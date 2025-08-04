@@ -6,7 +6,7 @@
     "description": "Scan Infrastructure as Code templates for security vulnerabilities using Qualys CloudView",
     "helpMarkDown": "",
     "category": "Utility",
-    "author": "OCC CSO  ",
+    "author": "OCC-CSO",
     "version": {
         "Major": 1,
         "Minor": 0,
